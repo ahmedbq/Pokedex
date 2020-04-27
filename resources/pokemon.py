@@ -28,8 +28,10 @@ class Pokemon(Resource):
                                        row.Special_Defense, row.Speed)
             # If it exists but the type does not
             elif float(row.Number) == float(number) and row.Type not in pokemon.types:
-
                 pokemon.types.append(row.Type)
+            # Stop loop once it goes past the number
+            elif float(row.Number) > float(number):
+                break
 
         if pokemon is not None:
             return {"pokemon": pokemon.json()}
