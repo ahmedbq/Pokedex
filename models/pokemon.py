@@ -1,5 +1,8 @@
 class PokemonModel:
-    def __init__(self, number, name, type, total, hp, attack, defense, special_attack, special_defense, speed):
+
+    def __init__(self, number, name, type, total, hp,
+                 attack, defense, special_attack, special_defense, speed):
+
         self.types = []
         self.types.append(type)
 

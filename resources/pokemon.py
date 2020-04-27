@@ -7,7 +7,9 @@ import pandas as pd
 folder_path = Path("data/")
 file_path = folder_path / "pokemon.csv"
 
+
 class Pokemon(Resource):
+
     def get(self):
         data = pd.read_csv(file_path)
 
@@ -25,7 +27,10 @@ class Pokemon(Resource):
 
             # If it exists, then just add the type
             if len(pokemonCopy) > 0:
-                pokemonCopy[0].addType(row.Type)
+                # There can be duplicates of the same pokemon
+                # with the same type
+                if row.Type not in pokemonCopy[0].types:
+                    pokemonCopy[0].addType(row.Type)
             # Otherwise add it to the list
             else:
                 pokemons.append(pokemon)

@@ -3,7 +3,9 @@ from flask_restful import Resource
 
 import pandas as pd
 
+
 class Table(Resource):
+
     def get(self):
         folder_path = Path("data/")
         file_path = folder_path / "pokemon.csv"
